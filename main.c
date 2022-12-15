@@ -1,4 +1,10 @@
+#define _XOPEN_SOURCE 700
+#define _GNU_SOURCE
+#define _POSIX_C_SOURCE >= 200809L
 #include "monty.h"
+#include <stdio.h>
+
+
 
 /* global struct to hold flag for queue and stack length */
 var_t var;
@@ -31,10 +37,11 @@ int main(int argc, char *argv[])
 		printf("Error: Can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 	}
-	on_exit(free_lineptr, &lineptr);
-	on_exit(free_stack, &stack);
-	on_exit(m_fs_close, fs);
-	while (getline(&lineptr, &n, fs) != -1)
+	 on_exit(free_lineptr, &lineptr);
+	 on_exit(free_stack, &stack);
+	 on_exit(m_fs_close, fs);
+	 
+	while ((getline(&lineptr, &n, fs)) != -1)
 	{
 		line_number++;
 		op = strtok(lineptr, "\n\t\r ");

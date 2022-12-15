@@ -20,7 +20,7 @@ void m_pstr(stack_t **stack, unsigned int line_number)
 	while (temp != NULL)
 	{
 		ch = temp->n;
-		if (!_isascii(ch) || ch == 0)
+		if (ch<=0 ||ch>127)
 			break;
 		putchar(ch);
 		temp = temp->next;
