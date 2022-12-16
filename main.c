@@ -1,9 +1,7 @@
-#define  _POSIX_C_SOURCE 200809L
 #define _GNU_SOURCE
+
 #include "monty.h"
 #include <stdio.h>
-
-
 
 /* global struct to hold flag for queue and stack length */
 var_t var;
@@ -27,13 +25,13 @@ int main(int argc, char *argv[])
 	var.stack_len = 0;
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		dprintf(STDOUT_FILENO,"USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fs = fopen(argv[1], "r");
 	if (fs == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		dprintf(STDOUT_FILENO,"Error: Can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 	}
 	 on_exit(free_lineptr, &lineptr);

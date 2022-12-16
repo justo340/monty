@@ -1,4 +1,4 @@
-#include "monty.h"
+#include"monty.h"
 
 /**
  * get_op - check op against valid opcodes
@@ -40,6 +40,6 @@ void get_op(char *op, stack_t **stack, unsigned int line_number)
 			return;
 		}
 	}
-	printf("L%u: unknown instruction %s\n",line_number, op);
+	dprintf(STDOUT_FILENO,"L%u: unknown instruction %s\n",line_number, op);
 	exit(EXIT_FAILURE);
 }

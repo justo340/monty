@@ -14,14 +14,14 @@ void m_pchar(stack_t **stack, unsigned int line_number)
 
 	if (var.stack_len < 1)
 	{
-		printf("L%u: can't pchar, stack empty\n",
+		dprintf(STDOUT_FILENO,"L%u: can't pchar, stack empty\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}
 	ch = (*stack)->n;
 	if (ch <=0 ||ch>127)
 	{
-		printf("L%u: can't pchar, value out of range\n",
+		dprintf(STDOUT_FILENO,"L%u: can't pchar, value out of range\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}
